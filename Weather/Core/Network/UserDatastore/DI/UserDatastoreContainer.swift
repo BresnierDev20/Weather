@@ -9,5 +9,5 @@ import Factory
 import Foundation
 
 extension Container {
-    static var datastore: UserDatastore { UserDatastore() }
+    static var datastore: UserDatastore { UserDatastore()}
 }
