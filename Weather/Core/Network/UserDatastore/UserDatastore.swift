@@ -12,23 +12,23 @@ class UserDatastore {
     private let locationKey = "location"
 
     // Guardar ubicación
-    func storeLocation(_ location: CoordinatorDt) {
+    func storeLocation(_ location: UserLocationData) {
         var locations = getLocations()
         locations.append(location)
         storeLocations(locations)
     }
 
     // guardar el arreglo completo de ubicaciones
-    private func storeLocations(_ locations: [CoordinatorDt]) {
+    private func storeLocations(_ locations: [UserLocationData]) {
         if let encoded = try? JSONEncoder().encode(locations) {
             UserDefaults.standard.set(encoded, forKey: locationKey)
         }
     }
 
     // Recuperar ubicación
-    func getLocations() -> [CoordinatorDt] {
+    func getLocations() -> [UserLocationData] {
         if let data = UserDefaults.standard.data(forKey: locationKey),
-           let decoded = try? JSONDecoder().decode([CoordinatorDt].self, from: data) {
+           let decoded = try? JSONDecoder().decode([UserLocationData].self, from: data) {
             return decoded
         }
         return []
@@ -47,9 +47,3 @@ class UserDatastore {
     }
 }
 
-struct CoordinatorDt: Codable, Identifiable {
-    var id = UUID()
-    let lat: Double
-    let lon: Double
-    let name: String
-}

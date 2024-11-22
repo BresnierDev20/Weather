@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    
+    <key>CFBundleIdentifier</key>
+    <string></string>
+    
+    <!-- Permisos de ubicación -->
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Se necesita tu ubicación para mostrar el clima en tu área</string>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Esta aplicación necesita tu ubicación para brindar la mejor función según la ubicación</string>
+    
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Necesitamos acceso a tu ubicación para mostrarte información meteorológica precisa y actualizada</string>
+    
+    <key>NSLocationUsageDescription</key>
+    <string>Tu ubicación se usa para mostrar información meteorológica local</string>
+    
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+        <key>WeatherUpdate</key>
+        <string>Necesitamos tu ubicación precisa para mostrar el clima en tu área exacta</string>
+    </dict>
+</dict>
+</plist>

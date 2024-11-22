@@ -8,5 +8,5 @@
 import Combine
 
 protocol WeatherRemoteDataSource {
-    func getWeather() -> AnyPublisher<WeatherResponse, ServiceErrors>
+    func getWeather(lat: Double, log: Double) -> AnyPublisher<WeatherResponse, ServiceErrors>
 }

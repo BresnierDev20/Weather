@@ -10,8 +10,7 @@ import SwiftUI
 struct LocationsRow: View {
     var lat: Double
     var lon: Double
-    var name: String
-
+ 
     var body: some View {
         HStack {
             // Icono de globo
@@ -22,8 +21,6 @@ struct LocationsRow: View {
             // Detalles de la ciudad
             VStack(alignment: .leading) {
 
-                Text("City: \(name)")
-                    .font(.headline)
                 Text("Coordinates: \(lat) / \(lon)")
                     .font(.subheadline)
                     .foregroundColor(.gray)

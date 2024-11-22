@@ -11,7 +11,7 @@ import Combine
 class WeatherUseCase {
     var repo = Container.weatherRepository
 
-    func invoke() -> AnyPublisher<WeatherResponse, ServiceErrors> {
-        return repo.getWeather()
+    func invoke(lat: Double, log: Double) -> AnyPublisher<WeatherResponse, ServiceErrors> {
+        return repo.getWeather(lat: lat, log: log)
     }
 }

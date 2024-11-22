@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MapView.updateUIView(_:context:):MapViewContainer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mapViewModel.locationDT?.initialLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewModel.locationManager(_:didUpdateLocations:):MainViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "locationDT">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in MapViewContainer.body.getter:MapViewContainer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " viewModel.locationDT?.initialLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MapViewContainer.checkLocationAndFetchWeather():MapViewContainer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "locationManager.authorizationStatus">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LocationManager.locationManager(_:didUpdateLocations:):MainViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.locationDT?.initialLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

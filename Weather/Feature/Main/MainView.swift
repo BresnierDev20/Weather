@@ -30,19 +30,13 @@ struct MainView: View {
                 .buttonStyle(ButtonsStyle(color: .green))
 
                 Button(action: {
-                    let vc = LocationsListView()
+                    let vc = LocationsListView(viewModel: viewModel)
                     Navigation.push(view: vc, animated: true)
                 }) {
                     Text("Locations List")
                 }
                 .buttonStyle(ButtonsStyle(color: .blue))
 
-//                Button(action: {
-//                    viewModel.getWeather()
-//                }) {
-//                    Text("Test API")
-//                }
-//                .buttonStyle(ButtonsStyle(color: .green))
             }
             .padding()
 

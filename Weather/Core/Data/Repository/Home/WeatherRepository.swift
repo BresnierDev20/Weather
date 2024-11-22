@@ -8,5 +8,6 @@
 import Combine
 
 protocol WeatherRepository {
-    func getWeather() -> AnyPublisher<WeatherResponse, ServiceErrors>
+    func getWeather(lat: Double, log: Double) -> AnyPublisher<WeatherResponse, ServiceErrors>
 }
+

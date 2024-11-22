@@ -11,7 +11,7 @@ import Factory
 class WeatherRepositoryImpl: WeatherRepository {
     var remote = Container.WeatherRemoteDataSource
     
-    func getWeather() -> AnyPublisher<WeatherResponse, ServiceErrors> {
-        remote.getWeather()
+    func getWeather(lat: Double, log: Double) -> AnyPublisher<WeatherResponse, ServiceErrors> {
+        remote.getWeather(lat: lat, log: log)
     }
 }

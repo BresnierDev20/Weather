@@ -10,11 +10,21 @@ import Foundation
 import Combine
 
 class WeatherRemoteDataSourceImpl: WeatherRemoteDataSource {
-    func getWeather() -> AnyPublisher<WeatherResponse, ServiceErrors> {
+    func getWeather(lat: Double, log: Double) -> AnyPublisher<WeatherResponse, ServiceErrors> {
         let url = URLDomains.shared.BASE + URLDomains.shared.EndpointWeather
-        let headers: HTTPHeaders = ["x-rapidapi-key": "\(URLDomains.shared.ApiKey)", "x-rapisapi-host":"\(URLDomains.shared.ApiKey)"]
-
-        return AF.request(url, method: .get, headers: headers)
+       
+        let parameters: [String: Any] = [
+            "latitude": lat,
+            "longitude": log,
+            "hourly": "temperature_2m,precipitation,windspeed_10m,cloudcover"
+        ]
+        
+        let header: HTTPHeaders = [
+            "x-rapidapi-key":"ebc04bcc90msh3843ce42ca972a9p14020djsn250387630867",
+            "x-rapisapi-host":"open-weather13.p.rapidapi.com"
+        ]
+        
+        return AF.request(url, method: .get, parameters: parameters, headers: header )
             .publishData()
             .tryMap { dataResponse -> Data in
                 guard let statusCode = dataResponse.response?.statusCode else {
