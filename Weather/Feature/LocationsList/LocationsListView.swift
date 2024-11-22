@@ -10,8 +10,8 @@ import Factory
 
 struct LocationsListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Bindable var viewModel: MainViewModel
-    
+    var viewModel: MainViewModel
+    var items = Container.datastore.getLocations()
     var body: some View {
         VStack(spacing: 0) {
             topBar
@@ -25,7 +25,7 @@ struct LocationsListView: View {
                 .ignoresSafeArea()
 
                 VStack(alignment: .leading) {
-                    if viewModel.items.count > 0 {
+                    if items.count > 0 {
                         Text("My Locations")
                             .font(.largeTitle)
                             .bold()
@@ -33,7 +33,7 @@ struct LocationsListView: View {
                             .padding(.top)
 
                         List {
-                            ForEach(viewModel.items) { item in
+                            ForEach(items) { item in
                                 LocationsRow(lat: item.lat, lon: item.lon)
                                     .listRowInsets(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
                                     .listRowBackground(Color.white.opacity(0.1))
@@ -42,8 +42,6 @@ struct LocationsListView: View {
                             
                         }
                         .listStyle(PlainListStyle())
-                        
-                        
                     } else {
                         Spacer()
                         Text("Empty locations")
@@ -65,8 +63,3 @@ struct LocationsListView: View {
         }
     }
 }
-
-
-
-
-

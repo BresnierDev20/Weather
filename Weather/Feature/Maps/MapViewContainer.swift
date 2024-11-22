@@ -83,12 +83,6 @@ struct MapViewContainer: View {
           }
           .edgesIgnoringSafeArea(.bottom)
         }
-        .onAppear {
-            if let location = viewModel.locationDT?.initialLocation {
-                viewModel.getWeather(lat: location.latitude, log: location.longitude)
-                
-            }
-        }
     }
 }
 

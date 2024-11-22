@@ -31,7 +31,7 @@ struct MainView: View {
 
                 Button(action: {
                     let vc = LocationsListView(viewModel: viewModel)
-                    Navigation.push(view: vc, animated: true)
+                    Navigation.push(view: vc)
                 }) {
                     Text("Locations List")
                 }

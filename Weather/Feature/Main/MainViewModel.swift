@@ -73,7 +73,7 @@ class MainViewModel:  NSObject, CLLocationManagerDelegate {
             isInitialLocationSet = true
             
             // Llama a `getWeather` con las coordenadas obtenidas
-            getWeather(lat: location.coordinate.latitude, log: location.coordinate.longitude)
+//            getWeather(lat: location.coordinate.latitude, log: location.coordinate.longitude)
             
             // Llama a `getLocationName` para obtener el nombre de la ubicación
             getLocationName(for: location.coordinate)
@@ -134,10 +134,16 @@ class MainViewModel:  NSObject, CLLocationManagerDelegate {
                 locationDT = GeoMarker(latitude: lat, longitude: lon)
                 coordinatorData = UserLocationData(lat: lat, lon: lon)
             }
-            if let data = coordinatorData {
-                datastore.storeLocation(data)
-            }
+          
 
+            if let data = self.coordinatorData {
+               self.datastore.storeLocation(data)  // Guarda la nueva ubicación
+                self.items = self.datastore.getLocations()
+            }
+            
+         
+
+            print(" loco \(self.items.count) item \(self.items.count)")
             print("\(String(describing: self.weatherDT)) and \(String(describing:self.nameLocation))")
         }).store(in: &disposables)
     }
@@ -148,8 +154,7 @@ class MainViewModel:  NSObject, CLLocationManagerDelegate {
             let item = items[index]
             Container.datastore.deleteLocation(withId: item.id)
         }
-        
-        // Actualizar la lista de elementos
+       
         items = Container.datastore.getLocations()
     }
     
