@@ -13,7 +13,8 @@ jobs:
       uses: actions/checkout@v4
 # Paso 3: Compilar el proyecto
     - name: Build project
-      run: xcodebuild -workspace Weather.xcworkspace -scheme Weather -sdk iphoneos -configuration Release 
+      run: xcodebuild -scheme Weather -sdk iphoneos -configuration Release
+      
     - name: Git Change Push
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
