@@ -17,6 +17,9 @@ jobs:
       
 # Paso 3: Compilar el proyecto
 
+    - name: Build Cleanup
+      run: xcodebuild clean -project Weather.xcodeproj -scheme Weather | xcpretty
+
     - name: Build Project
       run: xcodebuild -project Weather.xcodeproj -scheme Weather -sdk iphoneos -configuration Release
       
