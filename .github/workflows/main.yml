@@ -1,19 +1,24 @@
 on:
   push:
-    branches:
-        - master # Activa el pipeline cuando se hace push a la rama main
+    branches: [main]
+     
 jobs:
-  build-and-test:
+  build:
     runs-on: macos-latest
     permissions:
       contents: write
+      
     steps:
 # Paso 1: Clonar el repositorio
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: swift package resolve
+      
 # Paso 3: Compilar el proyecto
-    - name: Build project
-      run: xcodebuild -project Weather.xcodeproj -scheme Weather -sdk iphoneos -configuration Release
+    - name: Build Project
+      run: swift build --configuration release
       
     - name: Git Change Push
       uses: stefanzweifel/git-auto-commit-action@v5
