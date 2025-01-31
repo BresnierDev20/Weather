@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+        - manster # Activa el pipeline cuando se hace push a la rama main
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+# Paso 1: Clonar el repositorio
+    - name: Checkout code
+      uses: actions/checkout@v4
+# Paso 3: Compilar el proyecto
+    - name: Build project
+      run: xcodebuild -workspace Weather.xcworkspace -scheme Weather -sdk iphoneos -configuration Release
+# Paso 4: Ejecutar pruebas unitarias
+    - name: Run unit tests
+      run: xcodebuild test -workspace Weather.xcworkspace -scheme Weather -destination 'platform=iOS Simulator,name=iPhone 14'
+    - name: Git Change Push
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Automated Change
