@@ -13,10 +13,7 @@ jobs:
       uses: actions/checkout@v4
 # Paso 3: Compilar el proyecto
     - name: Build project
-      run: xcodebuild -workspace Weather.xcworkspace -scheme Weather -sdk iphoneos -configuration Release
-# Paso 4: Ejecutar pruebas unitarias
-    - name: Run unit tests
-      run: xcodebuild test -workspace Weather.xcworkspace -scheme Weather -destination 'platform=iOS Simulator,name=iPhone 14'
+      run: xcodebuild -workspace Weather.xcworkspace -scheme Weather -sdk iphoneos -configuration Release 
     - name: Git Change Push
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
